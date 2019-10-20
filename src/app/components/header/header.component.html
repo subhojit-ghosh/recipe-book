@@ -1,0 +1,33 @@
+<header>
+  <mat-toolbar id="main-header">
+    <a mat-menu-item routerLink="/">
+      <img src="assets/logo.png" alt="logo" width="50" id="header-logo" />
+    </a>
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="fill-remaining-space"></span>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm id="header-menu">
+      <a mat-menu-item routerLink="/recipes">Recipes</a>
+      <a mat-menu-item routerLink="/signup">Signup</a>
+      <a mat-menu-item routerLink="/login">Login</a>
+      <img mat-menu-item src="assets/user.png" alt="user" width="50" [mat-menu-trigger-for]="profile">
+    </div>
+    <button
+      mat-button
+      [mat-menu-trigger-for]="menu"
+      fxHide="false"
+      fxHide.gt-sm
+      id="mobile-menu-trigger"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-menu x-position="before" #menu="matMenu" id="mobile-menu">
+    <a mat-menu-item routerLink="/signup">Signup</a>
+    <a mat-menu-item routerLink="/login">Login</a>
+  </mat-menu>
+  <mat-menu x-position="before" #profile="matMenu">
+    <a mat-menu-item routerLink="/profile">Profile</a>
+    <a mat-menu-item routerLink="/logout">Logout</a>
+  </mat-menu>
+</header>
